@@ -1,1 +1,0 @@
-(()=>{function n(n,r){return n+r}n(4,3),n(3,2)})();

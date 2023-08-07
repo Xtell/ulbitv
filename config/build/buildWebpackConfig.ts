@@ -1,12 +1,12 @@
 import webpack from "webpack";
-import {BuildOptions} from "./types/config";
-import {buildLoaders} from "./buildLoaders";
-import {buildResolvers} from "./buildResolvers";
-import {buildPlugins} from "./buildPlugins";
-import {buildDevServer} from "./buildDevServer";
+import { BuildOptions } from "./types/config";
+import { buildLoaders } from "./buildLoaders";
+import { buildResolvers } from "./buildResolvers";
+import { buildPlugins } from "./buildPlugins";
+import { buildDevServer } from "./buildDevServer";
 
 export const buildWebpackConfig = (options: BuildOptions): webpack.Configuration => {
-  const {mode, paths, isDev} = options
+  const { mode, paths, isDev } = options
   return {
     mode,
     entry: paths.entry,
@@ -16,10 +16,11 @@ export const buildWebpackConfig = (options: BuildOptions): webpack.Configuration
       clean: true
     },
     module: {
-      rules: buildLoaders(),
+      rules: buildLoaders(options),
     },
     resolve: buildResolvers(),
     plugins: buildPlugins(options),
-    devServer: isDev ? buildDevServer(options) : {}
+    devServer: isDev ? buildDevServer(options) : {},
+    devtool: isDev ? "inline-source-map" : false,
   }
 }
