@@ -9,6 +9,10 @@ export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
     exclude: /node_modules/,
   }
 
+  const vueLoader = {
+      test: /\.vue$/,
+      loader: 'vue-loader'
+  }
   const cssLoader = {
     test: /\.pcss$/i,
     use: [
@@ -18,11 +22,13 @@ export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
         options: {
           modules: {
             auto: (resourcePath: string) => Boolean(resourcePath.includes(".module")),
+            localIdentName: isDev ? "[local]--[hash:base64:5]" : "[hash:base64:5]",
           },
           importLoaders: 1,
         },
       },
       "postcss-loader" ],
   }
-  return [ tsLoader, cssLoader ]
+
+  return [ tsLoader, vueLoader, cssLoader ]
 }
