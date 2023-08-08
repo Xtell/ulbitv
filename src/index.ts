@@ -1,17 +1,17 @@
-import "./index.pcss"
+import "./app/styles/index.pcss"
 import {createApp} from "vue";
-import Root from "./components/root/Root.vue";
 import VueRouter from "vue-router"
-import {routePaths} from "./routes";
-import MainPage from "./pages/MainPage.vue";
-import AboutPage from "./pages/AboutPage.vue";
+import {routePaths} from "routes";
+import {MainPage} from "pages/MainPage"
+import {AboutPage} from "pages/AboutPage"
+import App from "app/App.vue"
 
 const rootNode = document.querySelector("[data-js-root]")
 
-const app = createApp(Root)
+const app = createApp(App)
 
 const router = VueRouter.createRouter({
-    history: VueRouter.createWebHashHistory(),
+    history: VueRouter.createWebHistory(),
     routes: [{
         path: routePaths.main,
         component: MainPage
