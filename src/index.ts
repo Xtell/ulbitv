@@ -1,9 +1,8 @@
 import "./app/styles/index.pcss"
 import {createApp} from "vue";
 import VueRouter from "vue-router"
-import {routePaths} from "routes";
-import {MainPage} from "pages/MainPage"
-import {AboutPage} from "pages/AboutPage"
+import {routePaths} from "./routes/index";
+import {MainPage, AboutPage} from "@pages/index"
 import App from "app/App.vue"
 
 const rootNode = document.querySelector("[data-js-root]")
@@ -25,5 +24,8 @@ const router = VueRouter.createRouter({
 
 app.use(router)
 
-app.mount(rootNode)
+if (rootNode) {
+    app.mount(rootNode)
+}
+
 

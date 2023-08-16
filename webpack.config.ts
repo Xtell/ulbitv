@@ -1,5 +1,6 @@
+import webpack from "webpack"
 import {buildWebpackConfig} from "./config/build/buildWebpackConfig";
-import {BuildEnv, BuildPaths} from "./config/build/types/config";
+import { BuildEnv, BuildPaths} from "./config/build/types/config";
 import path from "path";
 
 const paths: BuildPaths = {
@@ -10,6 +11,11 @@ const paths: BuildPaths = {
     src: path.resolve(__dirname, "src")
 }
 
+const aliases: webpack.ResolveOptions["alias"] = {
+    "@pages": path.resolve(__dirname, "src", "pages"),
+    "@ui": path.resolve(__dirname, "src", "shared", "ui")
+}
+
 const config = (env: BuildEnv) => {
     const {mode = "development", port = 9000}: BuildEnv = env
     const isDev = mode === "development"
@@ -17,6 +23,7 @@ const config = (env: BuildEnv) => {
         mode,
         paths,
         port,
+        aliases,
         isDev
     })
 }

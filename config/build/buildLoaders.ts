@@ -5,7 +5,10 @@ export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
   const { isDev } = options
   const tsLoader = {
     test: /\.tsx?$/,
-    use: 'ts-loader',
+    loader: 'ts-loader',
+    options: {
+      appendTsSuffixTo: [/\.vue$/],
+    },
     exclude: /node_modules/,
   }
 

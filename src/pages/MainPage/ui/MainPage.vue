@@ -1,10 +1,9 @@
 <template>
     <h1>MainPage</h1>
-
 </template>
 
-<script>
-import {defineComponent} from "vue";
+<script lang="ts">
+import { defineComponent } from "vue";
 
 export default defineComponent({
     name: "MainPage",
@@ -17,6 +16,4 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
