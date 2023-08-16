@@ -4,7 +4,8 @@
         "noImplicitAny": true,
         "module": "commonjs",
         "target": "es5",
-        "jsx": "react-jsx",
+        "jsx": "preserve",
+        "jsxImportSource": "vue",
         "allowJs": true,
         "moduleResolution": "node",
         "strict": true,
@@ -14,9 +15,11 @@
         "allowSyntheticDefaultImports": true,
         "baseUrl": ".",
         "paths": {
+            "@ui": ["./src/shared/ui"],
             "@ui/*": [
                 "./src/shared/ui/*"
             ],
+            "@pages": ["./src/pages"],
             "@pages/*": [
                 "./src/pages/*"
             ]

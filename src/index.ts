@@ -2,7 +2,7 @@ import "./app/styles/index.pcss"
 import {createApp} from "vue";
 import VueRouter from "vue-router"
 import {routePaths} from "./routes/index";
-import {MainPage, AboutPage} from "@pages/index"
+import {MainPage, AboutPage} from "@pages"
 import App from "app/App.vue"
 
 const rootNode = document.querySelector("[data-js-root]")
